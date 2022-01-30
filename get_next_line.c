@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 12:37:57 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/01/30 21:52:18 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/01/30 23:22:21 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,9 @@ char	*get_next_line(int fd)
 			return(next_line);
 		else
 			free (buffer);
-			ft_readbuffer(fd);
+	
 	}
 	return (NULL);
-
 }
 
 size_t	ft_len(char *s)
@@ -72,30 +71,39 @@ size_t	ft_len(char *s)
 	return (i);
 }
 
-char	*ft_bufferjoin(char const *s1, char const *s2)
+char	*ft_bufferjoin(char const *next_line, char const *buffer)
 {
 	char	*joint;
-	size_t	s1_len;
-	size_t	s2_len;
+	size_t	nl_len;
+	size_t	buf_len;
 	size_t	i;
 	size_t	j;
 
 	i = 0;
-	if (!s1 || !s2)
+	if (!next_line || !buffer)
 		return (NULL);
-	s1_len = ft_len(s1);
-	s2_len = ft_len(s2);
-	joint = (char *)malloc((s1_len + s2_len + 1) * sizeof(char));
+	next_line = ft_len(next_line);
+	buffer = ft_len(buffer);
+	joint = (char *)malloc((nl_len + buf_len + 1) * sizeof(char));
 	if (!joint)
 		return (NULL);
-	while(s1[i] != '\0')
-		joint[i++] = s1[i];
-	while(s2[j] != '\0' && s2[j] != '\n')
-		joint[i++] = s2[j++];
-	if (s2[j] == '\n')
-	
+	while(next_line[i] != '\0')
+		joint[i++] = next_line[i];
+	while(buffer[j] != '\0' && buffer[j] != '\n')
+		joint[i++] = buffer[j++];
+	if (buffer[j] == '\n')
+	{
 		joint[i] = '\n';
 		joint[i + 1] = '\0';
+		buffer = &buffer[j + 1];
+	}
 	joint[i] = '\0';
 	return (joint);
+}
+
+void	*ft_memmove(*dest, *src, size_t n)
+{
+	
+	return((void *)dest);
+	)
 }
