@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 12:38:31 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/02/13 13:48:29 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/02/13 14:58:23 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@
 
 // gnl
 char	*get_next_line(int fd);
-size_t	ft_strlen(char *s);
 char	*ft_strjoin(char *next_line, char *buffer);
 char	*ft_strdup(const char *s);
 //gnl-utils
 char	*ft_strchr(const char *s, int c); //addr of first occurence of c
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+size_t	ft_strlen(char *s, c);
 #endif

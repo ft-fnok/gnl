@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 12:37:57 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/02/13 13:52:19 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/02/13 18:56:25 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,21 +52,26 @@ char	*ft_found_nl(char *buffer, char* next_line)
 {
 	size_t	len_next_line;
 	size_t	len_buffer_to_nl;
+	size_t	i;
 	char	*new_next_line;
 
-	len_next_line = ft_strlen(next_line);
-	len_buffer_to_nl =
-	new_next_line = (char *)malloc(len_next_line + len_buffer_to_nl + 1);
-	
-	// cat	next_line with buffer up to and incl \n
-	// -- get len of next_line & len of buffer up to and incl. \n
-	//-- reallocate memory for next_line (len_next_line + len_buffer_to_incl_nl + 1)
-	// -- copy temp_of_nl + buffer_to_incl_nl & terminate with \0
-	// move (\n + 1) to beginning of buffer
-	//-- memmove
-	free(tmp);
-	return()
+	i = 0;
+	len_next_line = ft_strlen(next_line, '\0');
+	len_buffer_to_nl = ft_strlen(buffer, '\n') + 1;
+	new_next_line = (char *)malloc(len_next_line +  len_buffer_to_nl + 1);
+	if (!new_next_line)
+		return (NULL);
+	i += ft_strlcpy(new_next_line, next_line, len_next_line);
+	i += ft_strlcpy(&new_next_line[len_next_line], buffer, len_buffer_to_nl);
+	new_next_line[i] = '\0';
+	i = len_buffer_to_nl + 1;
+	while (buffer[i] != '\0')
+		buffer++ = buffer[i++];
+	buffer[i] = '\0';
+	free(next_line);
+	return(new_next_line)
 }
+
 char	*ft_strjoin(char  *next_line, char  *buffer)
 {
 	char	*joint;
@@ -75,8 +80,8 @@ char	*ft_strjoin(char  *next_line, char  *buffer)
 	size_t	i;
 	size_t	j;
 
-	nl_len = ft_strlen(next_line);
-	buf_len = ft_strlen(buffer);
+	nl_len = ft_strlen(next_line, '\0');
+	buf_len = ft_strlen(buffer, '\0');
 	i = 0;
 	j= 0;
 
@@ -106,7 +111,7 @@ char	*ft_strdup(const char *s)
 	char	*dup;
 	size_t	len;
 
-	len = ft_strlen(s);
+	len = ft_strlen(s, '\0');
 	dup = (char *)malloc(len + 1);
 	if (dup == NULL)
 		return (0);
@@ -121,6 +126,16 @@ char	*ft_strdup(const char *s)
 
 #include <stdio.h>
 #include <fcntl.h>
+
+size_t	ft_strlen(char *s, int c)
+{
+	size_t i;
+
+	i = 0;
+	while (s[i] != c)
+		i++;
+	return (i);
+}
 
 int main(void)
 {

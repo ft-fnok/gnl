@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 12:54:32 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/02/13 12:35:05 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/02/13 15:01:34 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strchr(const char *s, int c)
 	i = 0;
 	if (c > 255)
 		return ((char *)s);
-	len = ft_strlen((char *)s);
+	len = ft_strlen((char *)s, '\0');
 	while (i <= len)
 	{
 		if (s[i] == c)
@@ -40,7 +40,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 
 	len = 0;
 	if (!size)
-		return (ft_strlen(src));
+		return (ft_strlen(src, '\0'));
 	while ((len < (size - 1)) && (src[len] != '\0'))
 	{
 		dest[len] = src[len];
