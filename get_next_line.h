@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlalleik <nlalleik@students.42wolfsburg.de +#+  +:+       +#+        */
+/*   By: nlalleik <nlalleik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 12:38:31 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/01/31 18:25:30 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/02/13 13:48:29 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,10 @@
 
 // gnl
 char	*get_next_line(int fd);
-size_t	ft_len(char *s);
-char	*ft_bufferjoin(char *next_line, char *buffer);
-void 	*ft_calloc(size_t num, size_t size);
+size_t	ft_strlen(char *s);
+char	*ft_strjoin(char *next_line, char *buffer);
+char	*ft_strdup(const char *s);
 //gnl-utils
 char	*ft_strchr(const char *s, int c); //addr of first occurence of c
-char	*ft_strtrim(char const *s1, char const *set);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
-char	*ft_strrchr(const char *s, int c); //addr of last occurence of c
-char	*ft_strdup(const char *s);
 #endif
