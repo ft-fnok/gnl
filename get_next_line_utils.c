@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 12:54:32 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/02/13 15:01:34 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/02/15 17:41:01 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 
 	len = 0;
 	if (!size)
-		return (ft_strlen(src, '\0'));
+		return (ft_strlen((char *)src, '\0'));
 	while ((len < (size - 1)) && (src[len] != '\0'))
 	{
 		dest[len] = src[len];
@@ -50,4 +50,58 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	while (src[len] != 0)
 		len++;
 	return (len);
+}
+
+size_t	ft_strlen(char *s, int c)
+{
+	size_t i;
+
+	i = 0;
+	while (s[i] != c)
+		i++;
+	return (i);
+}
+
+char	*ft_strdup(const char *s)
+{
+	char	*dup;
+	size_t	len;
+
+	len = ft_strlen((char *)s, '\0');
+	dup = (char *)malloc(len + 1);
+	if (dup == NULL)
+		return (0);
+	dup[len] = '\0';
+	while (len > 0)
+	{
+		dup[len - 1] = s[len - 1];
+		len--;
+	}
+	return (dup);
+}
+
+char	*ft_strjoin(char  *next_line, char  *buf)
+{
+	char	*out;
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j= 0;
+	if (!next_line || !buf)
+		return (NULL);
+	out = (char *)malloc(ft_strlen(next_line, '\0') + ft_strlen(buf, '\0') + 1);
+	if (!out)
+		return (NULL);
+	while(next_line[i] != '\0')
+	{
+		out[i] = next_line[i];
+		i++;
+	}
+	while(buf[j] != '\0' && buf[j] != '\n')
+		out[i++] = buf[j++];
+	if (buf[j] == '\n')
+		out[i++] = '\n';
+	out[i] = '\0';
+	return (out);
 }
