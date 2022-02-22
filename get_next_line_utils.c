@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 12:54:32 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/02/19 14:43:13 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/02/22 16:16:42 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,6 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-// size_t	ft_strlcpy(char *dest, const char *src, size_t size)
-// {
-// 	size_t	len;
-
-// 	len = 0;
-// 	if (!size)
-// 		return (ft_strlen((char *)src));
-// 	while ((len < (size - 1)) && (src[len] != '\0'))
-// 	{
-// 		dest[len] = src[len];
-// 		len++;
-// 	}
-// 	dest[len] = '\0';
-// 	while (src[len] != 0)
-// 		len++;
-// 	return (len);
-// }
-
 size_t	ft_strlen(char *s)
 {
 	size_t i;
@@ -62,25 +44,7 @@ size_t	ft_strlen(char *s)
 	return (i);
 }
 
-// char	*ft_strdup(const char *s)
-// {
-// 	char	*dup;
-// 	size_t	len;
-
-// 	len = ft_strlen((char *)s);
-// 	dup = (char *)malloc(len + 1);
-// 	if (dup == NULL)
-// 		return (0);
-// 	dup[len] = '\0';
-// 	while (len > 0)
-// 	{
-// 		dup[len - 1] = s[len - 1];
-// 		len--;
-// 	}
-// 	return (dup);
-// }
-
-char	*ft_strjoin(char  *next_line, char  *buf)
+char	*ft_strjoin(char  *next_line, char  *buf, size_t bytes)
 {
 	char	*out;
 	size_t	i;
@@ -93,17 +57,24 @@ char	*ft_strjoin(char  *next_line, char  *buf)
 	out = (char *)malloc(ft_strlen(next_line) + ft_strlen(buf) + 1);
 	if (!out)
 		return (NULL);
-	//ft_bzero(out, ft_strlen(next_line) +  ft_strlen(buf) + 1);
-	while(next_line[i] != '\0')
+	while (next_line[i] != '\0')
 	{
 		out[i] = next_line[i];
 		i++;
 	}
-	while(buf[j] != '\0' && buf[j] != '\n')
-		out[i++] = buf[j++];
-	if (buf[j] == '\n')
-		out[i] = '\n';
-	out[++i] = '\0';
+	if (bytes == 0)
+	{
+		while (buf[j] != '\0')
+				out[i++] = buf[j++];
+	}
+	else
+	{
+		while (j < bytes)
+			out[i++] = buf[j++];
+	//	out[i++] = '\n';
+
+	}
+	out[i] = '\0';
 	return (out);
 }
 

@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 12:37:57 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/02/19 15:47:59 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/02/22 16:15:06 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ char	*get_next_line(int fd)
 	size_t			i;
 
 	i = 0;
-	if (fd < 0 || BUFFER_SIZE == 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	next_line = (char *)malloc(BUFFER_SIZE + 1);
+	// why use potentially more memory than needed?
 	if (!next_line)
 		return (NULL);
 	else
@@ -45,7 +46,7 @@ char	*gnl_handler(char *buffer, char *next_line, int fd)
 			//	printf("next_line: %s\n", next_line);
 				return(ft_found_nl(buffer, next_line));
 			}
-			next_line = ft_strjoin(next_line, buffer);
+			next_line = ft_strjoin(next_line, buffer, 0);
 			//printf("i: %i\n", i);
 			i++;
 		}
@@ -61,13 +62,23 @@ char	*ft_found_nl(char *buffer, char *next_line)
 {
 	char	*p_nl;
 	char	*out;
+	size_t	i;
+	size_t	bytes;
 
+	i = 0;
 	p_nl = ft_strchr(buffer, '\n');
-	out = (char *)malloc(ft_strlen(next_line) + (p_nl - buffer) + 1);
+	bytes = p_nl - buffer + 1;
+	//printf("bytes = %zu", bytes);
+	out = (char *)malloc(ft_strlen(next_line) + bytes + 2); // +2
 	if (!out)
 		return (NULL);
-	out = ft_strjoin(next_line, buffer);
-	buffer[0] = p_nl[1];
+	out = ft_strjoin(next_line, buffer, bytes);
+	while (buffer[i + bytes] != '\0')
+	{
+		buffer[i] = buffer[i + bytes];
+		i++;
+	}
+	buffer[i] = '\0';
 	free(next_line);
 	return (out);
 }

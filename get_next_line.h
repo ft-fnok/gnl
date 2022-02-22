@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 12:38:31 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/02/18 16:53:43 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/02/22 15:30:37 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_found_nl(char *buffer, char* next_line);
 char	*ft_strchr(const char *s, int c); //addr of first occurence of c
 //size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlen(char *s);
-char	*ft_strjoin(char *next_line, char *buffer);
+char	*ft_strjoin(char *next_line, char *buffer, size_t bytes);
 void	ft_bzero(void *s, size_t n);
 
 
