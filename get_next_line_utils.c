@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 12:54:32 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/02/22 17:28:59 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:33:10 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*ft_strjoin(char *next_line, char *buf, size_t bytes)
 	if (!out)
 		return (NULL);
 	return (ft_cplogic(out, next_line, buf, bytes));
-	}
+}
 
 char	*ft_cplogic(char *out, char *next_line, char *buf, size_t bytes)
 {
@@ -64,10 +64,10 @@ char	*ft_cplogic(char *out, char *next_line, char *buf, size_t bytes)
 	i = 0;
 	j = 0;
 	while (next_line[i] != '\0')
-		{
+	{
 			out[i] = next_line[i];
 			i++;
-		}
+	}
 	if (bytes == 0)
 	{
 		while (buf[j] != '\0')

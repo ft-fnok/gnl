@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 12:37:57 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/02/22 17:04:19 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:34:11 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ char	*get_next_line(int fd)
 	if (!next_line)
 		return (NULL);
 	next_line[0] = '\0';
-	// ft_bzero(next_line, BUFFER_SIZE + 1);
 	return (gnl_handler(buffer, next_line, fd));
 }
 
@@ -75,18 +74,18 @@ char	*ft_found_nl(char *buffer, char *next_line)
 	return (out);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int main(void)
-{
-	int fildes = open("testfile", O_RDWR);
-	if (fildes >= 0)
-	{
-		printf("fildes = %i\n", fildes);
-		printf("%s", get_next_line(fildes));
-		printf("%s", get_next_line(fildes));
-		printf("%s", get_next_line(fildes));
-		printf("%s", get_next_line(fildes));
-		close(fildes);
-	}
-}
+// int main(void)
+// {
+// 	int fildes = open("testfile", O_RDWR);
+// 	if (fildes >= 0)
+// 	{
+// 		printf("fildes = %i\n", fildes);
+// 		printf("%s", get_next_line(fildes));
+// 		printf("%s", get_next_line(fildes));
+// 		printf("%s", get_next_line(fildes));
+// 		printf("%s", get_next_line(fildes));
+// 		close(fildes);
+// 	}
+// }
