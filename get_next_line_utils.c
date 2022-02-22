@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 12:54:32 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/02/22 16:53:29 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:08:12 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ char	*ft_strjoin(char *next_line, char *buf, size_t bytes)
 	size_t	i;
 	size_t	j;
 
-	i = 0;
-	j = 0;
+	i,j = 0;
+	//j = 0;
 	if (!next_line || !buf)
 		return (NULL);
 	out = (char *)malloc(ft_strlen(next_line) + ft_strlen(buf) + 1);
@@ -76,14 +76,14 @@ char	*ft_strjoin(char *next_line, char *buf, size_t bytes)
 	return (out);
 }
 
-void	ft_bzero(void *s, size_t n)
-{
-	char	*a;
+// void	ft_bzero(void *s, size_t n)
+// {
+// 	char	*a;
 
-	a = (char *)s;
-	while (n > 0)
-	{
-		a[(n - 1)] = '\0';
-		n--;
-	}
-}
+// 	a = (char *)s;
+// 	while (n > 0)
+// 	{
+// 		a[(n - 1)] = '\0';
+// 		n--;
+// 	}
+// }
