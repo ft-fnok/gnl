@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 12:37:57 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/02/22 16:46:26 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/02/22 16:49:02 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,14 @@ char	*get_next_line(int fd)
 
 char	*gnl_handler(char *buffer, char *next_line, int fd)
 {
-	ssize_t	readresult;c
+	ssize_t	readresult;
+
 	while (1)
 	{
 		if (buffer[0])
 		{
 			if (ft_strchr(buffer, '\n'))
-				return(ft_found_nl(buffer, next_line));
+				return (ft_found_nl(buffer, next_line));
 			next_line = ft_strjoin(next_line, buffer, 0);
 		}
 		readresult = read(fd, buffer, BUFFER_SIZE);
