@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 12:37:57 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/02/22 16:49:02 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/02/22 16:51:48 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,14 @@ char	*gnl_handler(char *buffer, char *next_line, int fd)
 			next_line = ft_strjoin(next_line, buffer, 0);
 		}
 		readresult = read(fd, buffer, BUFFER_SIZE);
- 		if (readresult == -1 || (readresult == 0 && next_line[0] == '\0'))
-			return(NULL);
+		if (readresult == -1 || (readresult == 0 && next_line[0] == '\0'))
+			return (NULL);
 		buffer[readresult] = '\0';
 		if (readresult == 0)
-			return(next_line);
+			return (next_line);
 	}
 }
+
 char	*ft_found_nl(char *buffer, char *next_line)
 {
 	char	*p_nl;
@@ -60,8 +61,7 @@ char	*ft_found_nl(char *buffer, char *next_line)
 	i = 0;
 	p_nl = ft_strchr(buffer, '\n');
 	bytes = p_nl - buffer + 1;
-	//printf("bytes = %zu", bytes);
-	out = (char *)malloc(ft_strlen(next_line) + bytes + 2); // +2
+	out = (char *)malloc(ft_strlen(next_line) + bytes + 2);
 	if (!out)
 		return (NULL);
 	out = ft_strjoin(next_line, buffer, bytes);
@@ -75,7 +75,7 @@ char	*ft_found_nl(char *buffer, char *next_line)
 	return (out);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
 // int main(void)
 // {
