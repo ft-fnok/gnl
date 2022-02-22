@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 12:37:57 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/02/22 16:15:06 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/02/22 16:46:26 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,32 +23,23 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	next_line = (char *)malloc(BUFFER_SIZE + 1);
-	// why use potentially more memory than needed?
 	if (!next_line)
 		return (NULL);
 	else
 		ft_bzero(next_line, BUFFER_SIZE + 1);
-	return(gnl_handler(buffer, next_line, fd));
+	return (gnl_handler(buffer, next_line, fd));
 }
 
 char	*gnl_handler(char *buffer, char *next_line, int fd)
 {
-	ssize_t	readresult;
-	int	i;
-
-	i = 0;
+	ssize_t	readresult;c
 	while (1)
 	{
 		if (buffer[0])
 		{
-			if(ft_strchr(buffer, '\n'))
-			{
-			//	printf("next_line: %s\n", next_line);
+			if (ft_strchr(buffer, '\n'))
 				return(ft_found_nl(buffer, next_line));
-			}
 			next_line = ft_strjoin(next_line, buffer, 0);
-			//printf("i: %i\n", i);
-			i++;
 		}
 		readresult = read(fd, buffer, BUFFER_SIZE);
  		if (readresult == -1 || (readresult == 0 && next_line[0] == '\0'))
@@ -85,16 +76,16 @@ char	*ft_found_nl(char *buffer, char *next_line)
 
 #include <stdio.h>
 
-int main(void)
-{
-	int fildes = open("testfile", O_RDWR);
-	if (fildes >= 0)
-	{
-		printf("fildes = %i\n", fildes);
-		printf("%s", get_next_line(fildes));
-		printf("%s", get_next_line(fildes));
-		printf("%s", get_next_line(fildes));
-		printf("%s", get_next_line(fildes));
-		close(fildes);
-	}
-}
+// int main(void)
+// {
+// 	int fildes = open("testfile", O_RDWR);
+// 	if (fildes >= 0)
+// 	{
+// 		printf("fildes = %i\n", fildes);
+// 		printf("%s", get_next_line(fildes));
+// 		printf("%s", get_next_line(fildes));
+// 		printf("%s", get_next_line(fildes));
+// 		printf("%s", get_next_line(fildes));
+// 		close(fildes);
+// 	}
+// }
