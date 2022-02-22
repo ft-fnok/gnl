@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 12:54:32 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/02/22 17:11:00 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:13:03 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ size_t	ft_strlen(char *s)
 char	*ft_strjoin(char *next_line, char *buf, size_t bytes)
 {
 	char	*out;
-	size_t	i, j;
+	size_t	i;
+	size_t	j;
 
 	i, j = 0;
 	if (!next_line || !buf)
