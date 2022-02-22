@@ -6,14 +6,14 @@
 /*   By: nlalleik <nlalleik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 12:38:31 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/02/22 17:36:31 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:37:43 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
-#define GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE 1
+#  define BUFFER_SIZE 1
 # endif
 # include <stddef.h>
 // included for use of size_t type
