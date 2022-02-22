@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 12:54:32 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/02/22 17:08:12 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:11:00 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,9 @@ size_t	ft_strlen(char *s)
 char	*ft_strjoin(char *next_line, char *buf, size_t bytes)
 {
 	char	*out;
-	size_t	i;
-	size_t	j;
+	size_t	i, j;
 
-	i,j = 0;
-	//j = 0;
+	i, j = 0;
 	if (!next_line || !buf)
 		return (NULL);
 	out = (char *)malloc(ft_strlen(next_line) + ft_strlen(buf) + 1);
