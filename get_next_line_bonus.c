@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlalleik <nlalleik@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 12:37:57 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/03/28 09:23:55 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/03/28 09:54:32 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char	*ft_found_nl(char *buffer, char *next_line)
 
 	i = 0;
 	bytes = 0;
-	while(buffer[bytes] != '\n')
+	while (buffer[bytes] != '\n')
 		bytes++;
 	bytes++;
 	out = ft_strjoin(next_line, buffer, bytes);
